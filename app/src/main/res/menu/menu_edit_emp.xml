@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.wonhwee.employeemanager.EditEmpActivity">
+    <item
+        android:id="@+id/action_cancel"
+        android:orderInCategory="100"
+        android:title="Cancel" />
+    <item
+        android:id="@+id/action_send_email"
+        android:orderInCategory="101"
+        android:title="Send an email"
+        app:showAsAction="never" />
+</menu>
