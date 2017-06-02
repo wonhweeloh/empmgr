@@ -87,7 +87,7 @@ public class EditEmpActivity extends AppCompatActivity {
             return;
         }
 
-        mOriginalEmpPositionId = mEmployeeInfo.getPositionInfo().getPositionId();
+        mOriginalEmpPositionId = mEmployeeInfo.getPositionInfo().getPositionCode();
         mOriginalEmpName = mEmployeeInfo.getName();
         mOriginalEmpEmail = mEmployeeInfo.getEmail();
     }

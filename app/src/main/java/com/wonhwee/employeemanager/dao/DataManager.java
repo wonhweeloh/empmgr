@@ -59,7 +59,7 @@ public class DataManager {
 
     public PositionInfo getPositionInfo(String id) {
         for (PositionInfo positionInfo : mPosition) {
-            if (id.equals(positionInfo.getPositionId()))
+            if (id.equals(positionInfo.getPositionCode()))
                 return positionInfo;
         }
         return null;

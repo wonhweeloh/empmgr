@@ -6,18 +6,18 @@ import android.os.Parcelable;
 import java.util.List;
 
 public final class PositionInfo implements Parcelable {
-    private final String mPositionId;
+    private final String mPositionCode;
     private final String mTitle;
     private final List<DutyInfo> mDuties;
 
-    public PositionInfo(String positionId, String title, List<DutyInfo> duties) {
-        mPositionId = positionId;
+    public PositionInfo(String positionCode, String title, List<DutyInfo> duties) {
+        mPositionCode = positionCode;
         mTitle = title;
         mDuties = duties;
     }
 
     protected PositionInfo(Parcel in) {
-        mPositionId = in.readString();
+        mPositionCode = in.readString();
         mTitle = in.readString();
         mDuties = in.createTypedArrayList(DutyInfo.CREATOR);
     }
@@ -34,8 +34,8 @@ public final class PositionInfo implements Parcelable {
         }
     };
 
-    public String getPositionId() {
-        return mPositionId;
+    public String getPositionCode() {
+        return mPositionCode;
     }
 
     public String getTitle() {
@@ -62,7 +62,7 @@ public final class PositionInfo implements Parcelable {
 
     public DutyInfo getDuty(String dutyId) {
         for(DutyInfo dutyInfo: mDuties) {
-            if(dutyId.equals(dutyInfo.getDutyId()))
+            if(dutyId.equals(dutyInfo.getDutyCode()))
                 return dutyInfo;
         }
         return null;
@@ -80,13 +80,13 @@ public final class PositionInfo implements Parcelable {
 
         PositionInfo that = (PositionInfo) o;
 
-        return mPositionId.equals(that.mPositionId);
+        return mPositionCode.equals(that.mPositionCode);
 
     }
 
     @Override
     public int hashCode() {
-        return mPositionId.hashCode();
+        return mPositionCode.hashCode();
     }
 
     @Override
@@ -96,7 +96,7 @@ public final class PositionInfo implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(mPositionId);
+        dest.writeString(mPositionCode);
         dest.writeString(mTitle);
         dest.writeTypedList(mDuties);
     }

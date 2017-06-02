@@ -57,7 +57,7 @@ public final class EmployeeInfo implements Parcelable {
     }
 
     private String getCompareKey() {
-        return mPositionInfo.getPositionId() + "|" + mName + "|" + mEmail;
+        return mPositionInfo.getPositionCode() + "|" + mName + "|" + mEmail;
     }
 
     @Override

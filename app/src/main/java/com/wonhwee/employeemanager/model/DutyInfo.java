@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public final class DutyInfo implements Parcelable {
-    private final String mDutyId;
+    private final String mDutyCode;
     private final String mDesc;
     private boolean mIsComplete = false;
 
@@ -12,14 +12,14 @@ public final class DutyInfo implements Parcelable {
         this(moduleId, title, false);
     }
 
-    public DutyInfo(String dutyId, String desc, boolean isComplete) {
-        mDutyId = dutyId;
+    public DutyInfo(String dutyCode, String desc, boolean isComplete) {
+        mDutyCode = dutyCode;
         mDesc = desc;
         mIsComplete = isComplete;
     }
 
     protected DutyInfo(Parcel in) {
-        mDutyId = in.readString();
+        mDutyCode = in.readString();
         mDesc = in.readString();
         mIsComplete = in.readByte() != 0;
     }
@@ -36,8 +36,8 @@ public final class DutyInfo implements Parcelable {
         }
     };
 
-    public String getDutyId() {
-        return mDutyId;
+    public String getDutyCode() {
+        return mDutyCode;
     }
 
     public String getDesc() {
@@ -64,12 +64,12 @@ public final class DutyInfo implements Parcelable {
 
         DutyInfo that = (DutyInfo) o;
 
-        return mDutyId.equals(that.mDutyId);
+        return mDutyCode.equals(that.mDutyCode);
     }
 
     @Override
     public int hashCode() {
-        return mDutyId.hashCode();
+        return mDutyCode.hashCode();
     }
 
     @Override
@@ -79,7 +79,7 @@ public final class DutyInfo implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(mDutyId);
+        dest.writeString(mDutyCode);
         dest.writeString(mDesc);
         dest.writeByte((byte) (mIsComplete ? 1 : 0));
     }
